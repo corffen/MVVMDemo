@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="multiPropertyViewModel"
+            type="com.corffen.mvvmdemo.MultiPropertyViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:text="我是多个Property界面"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="@{() ->multiPropertyViewModel.click1()}"
+            android:text="@{multiPropertyViewModel.content1}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="@{() ->multiPropertyViewModel.click2()}"
+            android:text="@{multiPropertyViewModel.content2}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="@{() ->multiPropertyViewModel.click3()}"
+            android:text="@{multiPropertyViewModel.content3}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:onClick="@{() ->multiPropertyViewModel.click4()}"
+            android:text="@{multiPropertyViewModel.content4 }"/>
+    </LinearLayout>
+</layout>

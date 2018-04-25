@@ -1,4 +1,4 @@
-package com.corffen.mvvmdemo;
+package com.corffen.mvvmdemo.rv;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.corffen.mvvmdemo.BaseViewHolder;
+import com.corffen.mvvmdemo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +62,7 @@ public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
         }
 
         @Override
-        protected void bind(int position) {
+        public void bind(int position) {
             String s = mDatas.get(position);
             mTextView.setText(s);
         }

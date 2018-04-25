@@ -16,40 +16,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.corffen.mvvmdemo.bindingadapter.BindingAdapterViewModel;
 import com.corffen.mvvmdemo.databinding.ActivityBindingAdapterBinding;
 
 public class BindingAdapterActivity extends AppCompatActivity {
 
-    public static final String url = "https://p.qpic" +
-            ".cn/videoyun/0/2449_43b6f696980311e59ed467f22794e792_1/640";
-    public static final String url1 = "http://cdn.meme.am/instances/60677654.jpg";
-
-    final ObservableField<Drawable> drawable = new ObservableField<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final ActivityBindingAdapterBinding activityBindingAdapterBinding = DataBindingUtil
                 .setContentView(this, R.layout.activity_binding_adapter);
-        activityBindingAdapterBinding.setTitle("corffen");
-        activityBindingAdapterBinding.setImageUrl(url1);
-        activityBindingAdapterBinding.setView(this);
-        drawable.set(getResources().getDrawable(R.drawable.armory));
-        activityBindingAdapterBinding.btnChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activityBindingAdapterBinding.setTitle("changed");
-                activityBindingAdapterBinding.setImageUrl(url);
-                drawable.set(getResources().getDrawable(R.drawable.back_icon));
-            }
-        });
 
-//        Glide.with(this).load(url).into(activityBindingAdapterBinding.ivNet);
+        activityBindingAdapterBinding.setViewModel(new BindingAdapterViewModel(this));
     }
 
-    public ObservableField<Drawable> getDrawable() {
-        return drawable;
-    }
 
     public static void start(Context context) {
         Intent starter = new Intent(context, BindingAdapterActivity.class);

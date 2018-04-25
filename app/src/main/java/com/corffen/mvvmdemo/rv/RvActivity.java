@@ -1,18 +1,17 @@
-package com.corffen.mvvmdemo;
+package com.corffen.mvvmdemo.rv;
 
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.corffen.mvvmdemo.R;
 import com.corffen.mvvmdemo.databinding.ActivityRvBinding;
-import com.corffen.mvvmdemo.rv.RvViewModel;
 
 import java.util.ArrayList;
 import java.util.List;

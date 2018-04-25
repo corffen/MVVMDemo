@@ -49,7 +49,7 @@
                 android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/btn_event"
-                android:text="事件点击"
+                android:text="事件点击的多种写法"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <Button
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"/>
             <Button
                 android:id="@+id/btn_rv_bind"
-                android:text="RecyclerView的binding数学"
+                android:text="Rv的使用"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </LinearLayout>

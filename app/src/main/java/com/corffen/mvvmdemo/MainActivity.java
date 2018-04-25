@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.corffen.mvvmdemo.livedata.LiveDataActivity;
 import com.corffen.mvvmdemo.rv.RvActivity;
 
 /**
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button mBtnBase, mBtnViewBindingData, mBtnViewBindingData2;
     private Button mClick, mClickWithViewModel, mMultiProperty, mEventListener;
-    private Button mBindingAdapter, mRvBinding;
+    private Button mBindingAdapter, mRvBinding, mLiveData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mRvBinding = findViewById(R.id.btn_rv_bind);
         mRvBinding.setOnClickListener(this);
+
+        mLiveData = findViewById(R.id.btn_live_data);
+        mLiveData.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +86,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_rv_bind:
                 RvActivity.start(this);
+                break;
+            case R.id.btn_live_data:
+                LiveDataActivity.start(this);
                 break;
             default:
                 break;

@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
-        android:id="@+id/fragment_list"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.corffen.mvvmdemo.livedata.LiveDataViewModel"/>
+    </data>
 
-    <FrameLayout
-        android:id="@+id/fragment_detail"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="2"/>
-</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:orientation="vertical">
+
+        <TextView
+            android:text="@{viewModel.content}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.changeCurrentContent()}"
+            android:text="改变数据"/>
+
+        <android.support.v7.widget.RecyclerView
+            app:adapter="@{viewModel.mStringObservableArrayList}"
+            android:id="@+id/rv_live"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</layout>

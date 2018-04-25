@@ -26,7 +26,8 @@ public class ViewBindingDataActivity extends AppCompatActivity {
         final ActivityViewBindDataBinding activityViewBindDataBinding = DataBindingUtil.setContentView(this, R.layout
                 .activity_view_bind_data);
         mUser = new User("绑定数据啊");
-        activityViewBindDataBinding.setUser(mUser);
+//        activityViewBindDataBinding.setUser(mUser);
+        activityViewBindDataBinding.setVariable(BR.user,mUser);
         activityViewBindDataBinding.btnChangeData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

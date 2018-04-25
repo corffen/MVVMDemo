@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="clickViewModel"
             type="com.corffen.mvvmdemo.ClickViewModel"/>
@@ -27,5 +28,14 @@
             android:gravity="center"
             android:onClick="@{() ->clickViewModel.clickMe()}"
             android:text="@{clickViewModel.btnContent}"/>
+
+        <ImageView
+            android:src="@{clickViewModel.ivDrawable}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:src="@{clickViewModel.drawable}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </layout>

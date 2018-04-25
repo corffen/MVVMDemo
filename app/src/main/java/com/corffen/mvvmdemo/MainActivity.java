@@ -11,7 +11,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mBtnBase, mBtnViewBindingData, mBtnViewBindingData2;
-    private Button mClick, mClickWithViewModel, mMultiProperty;
+    private Button mClick, mClickWithViewModel, mMultiProperty, mEventListener;
+    private Button mBindingAdapter, mRvBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         mMultiProperty = findViewById(R.id.btn_multi_property);
         mMultiProperty.setOnClickListener(this);
+
+        mEventListener = findViewById(R.id.btn_event);
+        mEventListener.setOnClickListener(this);
+
+        mBindingAdapter = findViewById(R.id.btn_binding_adapter);
+        mBindingAdapter.setOnClickListener(this);
+
+        mRvBinding = findViewById(R.id.btn_rv_bind);
+        mRvBinding.setOnClickListener(this);
     }
 
     @Override
@@ -60,6 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_multi_property:
                 MultiPropertyActivity.start(this);
+                break;
+            case R.id.btn_event:
+                EventActivity.start(this);
+                break;
+
+            case R.id.btn_binding_adapter:
+                BindingAdapterActivity.start(this);
+                break;
+            case R.id.btn_rv_bind:
+                RvActivity.start(this);
                 break;
             default:
                 break;

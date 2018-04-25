@@ -47,6 +47,21 @@
                 android:text="多个property的viewModel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btn_event"
+                android:text="事件点击"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btn_binding_adapter"
+                android:text="BindingAdapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btn_rv_bind"
+                android:text="RecyclerView的binding数学"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </ScrollView>

@@ -43,8 +43,11 @@ public class LiveDataViewModel extends ViewModel {
 
     public void changeCurrentContent() {
         count++;
-//        content.set("我是改变后的数据" + count);
         mCurrentName.setValue("我是改变后的数据" + count);
+    }
+
+    public interface RvItemOnClickListener{
+        void onClickItem(int position);
     }
 
 }

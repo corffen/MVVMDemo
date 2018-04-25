@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.corffen.mvvmdemo.BaseViewHolder;
 import com.corffen.mvvmdemo.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
@@ -52,19 +51,25 @@ public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
         return 0;
     }
 
-    public class RvViewHolder extends BaseViewHolder {
+    public class RvViewHolder extends BaseViewHolder implements View.OnClickListener {
 
         private TextView mTextView;
 
         public RvViewHolder(View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.tv_rv_content);
+            mTextView.setOnClickListener(this);
         }
 
         @Override
         public void bind(int position) {
             String s = mDatas.get(position);
             mTextView.setText(s);
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

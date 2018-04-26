@@ -12,10 +12,28 @@ import com.corffen.mvvmdemo.R;
 
 import java.util.List;
 
-public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
+public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> implements View
+        .OnClickListener {
 
     private List<String> mDatas;
 
+    private OnItemClickListener mListener;
+
+    @Override
+    public void onClick(View v) {
+
+        if (mListener != null) {
+            mListener.onItemClick((Integer) v.getTag());
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnclickListener(OnItemClickListener listener) {
+        this.mListener = listener;
+    }
 
     public RvAdatper(List<String> datas) {
         mDatas = datas;
@@ -35,12 +53,14 @@ public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_string_rv,
                 parent, false);
+        itemView.setOnClickListener(this);
         return new RvViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         holder.bind(position);
+        holder.itemView.setTag(position);
     }
 
     @Override
@@ -51,25 +71,19 @@ public class RvAdatper extends RecyclerView.Adapter<BaseViewHolder> {
         return 0;
     }
 
-    public class RvViewHolder extends BaseViewHolder implements View.OnClickListener {
+    public class RvViewHolder extends BaseViewHolder {
 
         private TextView mTextView;
 
         public RvViewHolder(View itemView) {
             super(itemView);
             mTextView = itemView.findViewById(R.id.tv_rv_content);
-            mTextView.setOnClickListener(this);
         }
 
         @Override
         public void bind(int position) {
             String s = mDatas.get(position);
             mTextView.setText(s);
-        }
-
-        @Override
-        public void onClick(View v) {
-
         }
     }
 }

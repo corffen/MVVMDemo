@@ -20,9 +20,11 @@ public class ClickWithViewModelActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityClickWithViewModelBinding activityClickWithViewModelBinding = DataBindingUtil.setContentView(this, R
+        ActivityClickWithViewModelBinding activityClickWithViewModelBinding = DataBindingUtil
+                .setContentView(this, R
                 .layout.activity_click_with_view_model);
-        activityClickWithViewModelBinding.setClickViewModel(new ClickViewModel(new User4("点我啊!"),this));
+        activityClickWithViewModelBinding.setClickViewModel(new ClickViewModel(new User4("点我啊!"),
+                this));
         activityClickWithViewModelBinding.executePendingBindings();
     }
 

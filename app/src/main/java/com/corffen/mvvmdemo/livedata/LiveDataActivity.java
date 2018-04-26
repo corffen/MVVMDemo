@@ -15,6 +15,7 @@ import com.corffen.mvvmdemo.databinding.ActivityLiveDataBinding;
 import com.corffen.mvvmdemo.rv.RvAdatper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LiveDataActivity extends AppCompatActivity {
 
@@ -46,6 +47,12 @@ public class LiveDataActivity extends AppCompatActivity {
         mRvAdatper = new RvAdatper(new ArrayList<String>());
         activityLiveDataBinding.rvLive.setLayoutManager(manager);
         activityLiveDataBinding.rvLive.setAdapter(mRvAdatper);
+        mRvAdatper.setOnclickListener(new RvAdatper.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                mLiveDataViewModel.updataContent(position);
+            }
+        });
     }
 
     private void subscribeToLiveData() {
@@ -53,6 +60,13 @@ public class LiveDataActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable String s) {
                 mLiveDataViewModel.setLiveDataForName(s);
+            }
+        });
+
+        mLiveDataViewModel.getSoureceDatas().observe(this, new Observer<List<String>>() {
+            @Override
+            public void onChanged(@Nullable List<String> strings) {
+                mLiveDataViewModel.addTitleToList(strings);
             }
         });
     }

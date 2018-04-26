@@ -2,32 +2,39 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.corffen.mvvmdemo.livedata.LiveDataViewModel"/>
+            type="com.corffen.mvvmdemo.livedata.LiveDataViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
-            android:text="@{viewModel.content}"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.content}" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{() -> viewModel.changeCurrentContent()}"
-            android:text="改变数据"/>
+            android:text="改变数据" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.changeDatas()}"
+            android:text="改变数据集合" />
 
         <android.support.v7.widget.RecyclerView
-            app:adapter="@{viewModel.mStringObservableArrayList}"
             android:id="@+id/rv_live"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:adapter="@{viewModel.mStringObservableArrayList}" />
     </LinearLayout>
 
 </layout>

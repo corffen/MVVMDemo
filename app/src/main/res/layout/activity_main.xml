@@ -68,6 +68,12 @@
                 android:text="LiveData的使用"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_property_changed"
+                android:text="属性变化监听"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </ScrollView>
